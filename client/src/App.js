@@ -5,6 +5,8 @@ import  axios from 'axios';
 
 function App() {
   const [location, setLocation] = useState('');
+  const [city, setCity] = useState('');
+  const [temp, setTemp] = useState('')
   const [weather, setWeather] = useState('');
   const [isResults, setIsResults] = useState(false)
 
@@ -17,7 +19,9 @@ function App() {
 
     axios.request(options).then((response)=>{
       const data = response.data;
-      setWeather(data);
+      setCity(data.name);
+      setTemp(data.main.temp);
+      setWeather(data.weather[0].description)
     }).catch((error)=>{
       console.log(error);
     });
@@ -37,6 +41,7 @@ function App() {
     };
   };
 
+
   return (
     <div id="App">
       <div id="search-bar">
@@ -47,9 +52,9 @@ function App() {
       {
         isResults &&
         <div id="results">
-          <h1>{weather.name}</h1>
-          <h3>{parseInt((weather.main.temp-273.15)*1.8)+32}&#8457;</h3>
-          <p>{weather.weather[0].description}</p>
+          <h1>{city}</h1>
+          <h3>{parseInt((temp-273.15)*1.8)+32}&#8457;</h3>
+          <p>{weather}</p>
         </div> 
       }
     </div>

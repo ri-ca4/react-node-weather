@@ -2,12 +2,15 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const axios = require('axios');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('/weather', (req, res) => {
     const loc = req.query.loc
@@ -23,6 +26,10 @@ app.get('/weather', (req, res) => {
         console.log(error)
       })
 
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 app.listen(port, ()=>{
