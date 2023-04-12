@@ -17,7 +17,6 @@ function App() {
 
     axios.request(options).then((response)=>{
       const data = response.data;
-      console.log(data)
       setWeather(data);
     }).catch((error)=>{
       console.log(error);
@@ -49,7 +48,7 @@ function App() {
         isResults &&
         <div id="results">
           <h1>{weather.name}</h1>
-          <h3>{((weather.main.temp-273.15)*1.8)+32}&#8457;</h3>
+          <h3>{parseInt((weather.main.temp-273.15)*1.8)+32}&#8457;</h3>
           <p>{weather.weather[0].description}</p>
         </div> 
       }

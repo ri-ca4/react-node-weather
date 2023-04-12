@@ -10,9 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/weather', (req, res) => {
+    const loc = req.query.loc
     const options = {
         method:'GET',
-        url: `https://api.openweathermap.org/data/2.5/weather?zip=32066,US&appid=${process.env.WEATHER_API_KEY}`,
+        url: `https://api.openweathermap.org/data/2.5/weather?zip=${loc},US&appid=${process.env.WEATHER_API_KEY}`,
       }
   
       axios.request(options).then((response)=>{
