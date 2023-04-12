@@ -14,6 +14,7 @@ function App() {
     const options = {
       method:'GET',
       url: 'https://wonderful-weather.herokuapp.com/weather',
+      // url: 'http://localhost:5000/weather',
       params: {loc: location}
     };
 
@@ -43,18 +44,18 @@ function App() {
 
 
   return (
-    <div id="App">
-      <div id="search-bar">
-        <label name="search">Enter Zip Code</label>
-        <input name="search" type="number" onChange={handleOnChange}/>
+    <div class="App">
+      <div id="search">
+        <h2>Enter Zip Code</h2>
+        <input name="search" type="number" onChange={handleOnChange}/><br/>
         <button id="submit" onClick={handleSubmit}>Submit</button>
       </div>
       {
         isResults &&
         <div id="results">
-          <h1>{city}</h1>
-          <h3>{parseInt((temp-273.15)*1.8)+32}&#8457;</h3>
-          <p>{weather}</p>
+          <h1 id="city">{city}</h1>
+          <h1 id="temp">{parseInt((temp-273.15)*1.8)+32}&#8457;</h1>
+          <p id="weather">{weather}</p>
         </div> 
       }
     </div>
