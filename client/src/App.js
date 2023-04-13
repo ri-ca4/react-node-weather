@@ -44,12 +44,11 @@ function App() {
 
 
   return (
-    <div class="App">
+    <div className="App">
       <div id="search">
-        <h2>Enter Zip Code</h2>
         <form onSubmit={handleSubmit}>
-          <input name="search" type="number" onChange={handleOnChange}/><br/>
-          <button id="submit" type='submit'>Submit</button>
+          <input name="search" type="number" placeholder="Enter ZIP code" onChange={handleOnChange}/>
+          <button id="submit" type='submit'>Go!</button>
         </form>
       </div>
       <div id="results">
