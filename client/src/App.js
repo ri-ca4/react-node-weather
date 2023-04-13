@@ -13,8 +13,8 @@ function App() {
   const getWeather = ()=>{
     const options = {
       method:'GET',
-      // url: 'https://wonderful-weather.herokuapp.com/weather',
-      url: 'http://localhost:5000/weather',
+      url: 'https://wonderful-weather.herokuapp.com/weather',
+      // url: 'http://localhost:5000/weather',
       params: {loc: location}
     };
 
