@@ -12,7 +12,8 @@ var allowedOrigins = [/*'http://localhost:5000'*/,
 
 app.use(cors({
   origin: function(origin, callback){
-    if(!origin) return callback(null, true);    if(allowedOrigins.indexOf(origin) === -1){
+    if(!origin) return callback(null, true);    
+    if(allowedOrigins.indexOf(origin) === -1){
       var msg = 'not allowed by cors';
       return callback(new Error(msg), false);
     }    return callback(null, true);
