@@ -41,6 +41,12 @@ input[type=number]{
   background-color: #ffffff;
 }
 
+#submit:focus,
+#submit:hover{
+  cursor: pointer;
+  border: 3px solid #000000;
+}
+
 #results{
   position: relative;
   display: flex;
